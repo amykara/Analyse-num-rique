@@ -1,0 +1,33 @@
+def f(x):
+ return (x^2 + 1)
+
+
+methode_rectangle(a, b, m):
+   h = (b-a)/m
+   somme = 0
+   pour i allant de 0 à m-1
+    x_i = a + i*h
+    somme = somme + f(x_i)
+  return h*somme 
+
+methode_trapeze(a, b, m):
+  h = (b-a)/m
+  somme = 0
+  pour i allant de 1 à m-1
+    x_i = a + i*h
+    somme = somme + f(x_i)
+  return (h/2)*(f(a) + 2*somme + f(b) )  
+
+methode_simpson(a, b, m):
+  m modulo 2 = 0
+  h = (b-a)/m
+  n = m/2
+  somme = 0
+  pour i allant de 0 à m-1
+        z_2i      = a + (2 * i)     * h
+        z_2i_plus1 = a + (2 * i + 1) * h
+        z_2i_plus2 = a + (2 * i + 2) * h
+        somme += f(z_2i) + 4 * f(z_2i_plus1) + f(z_2i_plus2)
+
+  return (h / 3) * somme
+  
